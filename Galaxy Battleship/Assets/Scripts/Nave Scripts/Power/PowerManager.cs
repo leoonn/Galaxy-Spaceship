@@ -10,12 +10,13 @@ public class PowerManager : shoot
     public int TimeRemaningPowerUp = 15;
     public GameObject shield;
     public bool pointsDouble = false;
+    public IconsPowerUp IconsScript;
 
     private void Start()
     {
 
         shootScript = GameObject.Find("Spaceship Galaga white").GetComponent<shoot>(); // get component script in player
-
+        IconsScript =  GameObject.Find("GameManager").GetComponent<IconsPowerUp>(); // get component script in player
         typePower = powerUp.empty; //set empty state
     }
 
@@ -27,7 +28,7 @@ public class PowerManager : shoot
                 StartCoroutine(DoubleShoot()); //start timer of power up double shoot
                 if (Input.GetButton("Shoot") && countTime > fireRate) // if true ? shoot !!
                 {
-
+                    
                     Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
                     ResetTime(); //call the method 
 

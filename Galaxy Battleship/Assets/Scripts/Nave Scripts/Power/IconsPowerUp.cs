@@ -7,6 +7,7 @@ public class IconsPowerUp : MonoBehaviour
 
     public GameObject [] iconPowerUp;
     public GameObject[] positionIcon;
+    public bool[] full;
     void Start()
     {
         
