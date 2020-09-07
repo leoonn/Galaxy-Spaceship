@@ -40,7 +40,7 @@ public class AsteroidsMove : MonoBehaviour
     public void AsteroidsVarSpeed() //method variation move and rotate
     {
         varSpeedRot = Random.Range(0.5f, 1.5f); //random speed rotate
-        varSpeedMove = Random.Range(0.2f, 0.4f);  //random speed move
+        varSpeedMove = Random.Range(0.4f, 0.7f);  //random speed move
     }
 
     public void OnBecameInvisible() //method for asteroids exit of camera

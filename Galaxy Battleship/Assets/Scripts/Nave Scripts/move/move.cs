@@ -15,6 +15,11 @@ public class move : MonoBehaviour
     public float maxY;
     public float maxZ;
     private float tempo = 0.0f;
+    Collider colplayer;
+    Animator anim;
+    
+    public int life = 3;
+    public GameObject[] PropellantActive;
 
     PowerManager powerScript;
     // Start is called before the first frame update
@@ -22,6 +27,8 @@ public class move : MonoBehaviour
     {
         rb = GetComponent<Rigidbody>();
         powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
+        colplayer = gameObject.GetComponent<Collider>();
+        anim = GameObject.Find("Cube").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -131,5 +138,25 @@ public class move : MonoBehaviour
             powerScript.typePower = powerUp.doubleScore;
             Destroy(col.gameObject);
         }
+    }
+
+    public void ActiveImmune()
+    {
+        transform.gameObject.tag = "Immune";
+        colplayer.enabled = false;
+        anim.SetBool("Immune", true);
+        StartCoroutine(Immune());
+        PropellantActive[0].SetActive(false);
+        PropellantActive[1].SetActive(false);
+    }
+    public IEnumerator Immune()
+    {
+        yield return new WaitForSeconds(5);
+        Debug.Log("TAG PLAYER OKAY");
+        transform.gameObject.tag = "Player";
+        colplayer.enabled = true;
+        anim.SetBool("Immune", false);
+        PropellantActive[0].SetActive(true);
+        PropellantActive[1].SetActive(true);
     }
 }

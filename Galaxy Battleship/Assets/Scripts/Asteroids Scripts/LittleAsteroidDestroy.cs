@@ -8,10 +8,12 @@ public class LittleAsteroidDestroy : MonoBehaviour
     public GameObject explosion;
     Pontuation pointsScript;
     PowerManager powerScript;
+    move moveScript;
     void Start()
     {
         pointsScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
         powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
+        moveScript = GameObject.Find("Spaceship Galaga white").GetComponent<move>();
     }
 
     // Update is called once per frame
@@ -23,7 +25,16 @@ public class LittleAsteroidDestroy : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //check object colliding in tag player
         {
-            Destroy(collision.gameObject);
+            moveScript.life--;
+            Debug.Log("life: " + moveScript.life);
+            GameObject explosionprefab = Instantiate(explosion, gameObject.transform.position, transform.rotation); // instantieate a particle system
+            Destroy(explosionprefab, 3f); //destroy particle
+            Destroy(gameObject);
+            moveScript.ActiveImmune();
+            if (moveScript.life == 0)
+            {
+                Destroy(collision.gameObject);
+            }
         }
     }
 

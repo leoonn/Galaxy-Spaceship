@@ -9,10 +9,12 @@ public class destroyCollision : MonoBehaviour
 
     PowerManager powerScript;
     Pontuation pointsScript;
+    move moveScript;
     void Start()
     {
         powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
         pointsScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
+        moveScript = GameObject.Find("Spaceship Galaga white").GetComponent<move>();
     }
 
     // Update is called once per frame
@@ -24,7 +26,16 @@ public class destroyCollision : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Player")) //check object colliding in tag player
         {
-            Destroy(collision.gameObject);
+            moveScript.life--;
+            Debug.Log("life: " + moveScript.life);
+            GameObject explosionprefab = Instantiate(explosion,gameObject.transform.position, transform.rotation); // instantieate a particle system
+            Destroy(explosionprefab, 3f); //destroy particle
+            Destroy(gameObject);
+            moveScript.ActiveImmune();
+            if (moveScript.life == 0)
+            {
+                Destroy(collision.gameObject);
+            }
         }
        
 
