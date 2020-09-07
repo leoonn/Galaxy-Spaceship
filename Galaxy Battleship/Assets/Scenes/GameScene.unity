@@ -1104,6 +1104,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 469881992}
   m_CullTransparentMesh: 0
+--- !u!1 &518962208 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1440347311254196285, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+  m_PrefabInstance: {fileID: 1555235966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!850595691 &521445886
 LightingSettings:
   m_ObjectHideFlags: 0
@@ -2471,6 +2476,11 @@ Transform:
   m_Father: {fileID: 1770810025}
   m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1391190486 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1440347311117978913, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+  m_PrefabInstance: {fileID: 1555235966}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1471458042
 GameObject:
   m_ObjectHideFlags: 0
@@ -2573,7 +2583,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1440347312445948879, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1440347313007606396, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: fpsCam
@@ -2583,6 +2593,18 @@ PrefabInstance:
       propertyPath: Aim
       value: 
       objectReference: {fileID: 1231479131}
+    - target: {fileID: 1904222644550772247, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: PropellantActive.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1904222644550772247, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: PropellantActive.Array.data[0]
+      value: 
+      objectReference: {fileID: 518962208}
+    - target: {fileID: 1904222644550772247, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: PropellantActive.Array.data[1]
+      value: 
+      objectReference: {fileID: 1391190486}
     - target: {fileID: 4938199044823842819, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: m_Name
       value: Spaceship Galaga white
@@ -2631,8 +2653,36 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8595449311815953309, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+--- !u!1 &1566608574 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4883322032406204214, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+  m_PrefabInstance: {fileID: 1555235966}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1566608578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1566608574}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a28ea86b51bb5c44b2baabac89af6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1609393315
 GameObject:
   m_ObjectHideFlags: 0
@@ -4237,7 +4287,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 7862839373784884836, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 80.9
+      value: 343
       objectReference: {fileID: 0}
     - target: {fileID: 7862839373784884836, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4245,7 +4295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862839373784884836, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.5
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7862839373784884836, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4297,7 +4347,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7862839373784884843, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
       propertyPath: speed
-      value: 20
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
