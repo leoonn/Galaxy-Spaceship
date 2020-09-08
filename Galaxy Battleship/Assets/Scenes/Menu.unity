@@ -1346,7 +1346,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 912764686}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0517262e56b21024d88095ed80eb29ae, type: 3}
+  m_Script: {fileID: 11500000, guid: 71dd6e1213271dd4c85365de512c988e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   positionsArray:
@@ -1361,7 +1361,7 @@ MonoBehaviour:
   - {fileID: 897434361}
   PrefabsAsteroids:
   - {fileID: 4460662709857879700, guid: 331d4db1518fd42499dba381d292d687, type: 3}
-  timespawn: 150
+  timespawn: 125
 --- !u!4 &912764688
 Transform:
   m_ObjectHideFlags: 0
