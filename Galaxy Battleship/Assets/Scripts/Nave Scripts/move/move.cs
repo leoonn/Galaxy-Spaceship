@@ -41,7 +41,7 @@ public class move : MonoBehaviour
         limitMovement();
         spaceshipRotation();
         recoveryDash = recoveryDash * Time.deltaTime;
-        DashRotate();
+        
     }
     public void limitMovement()
     {
