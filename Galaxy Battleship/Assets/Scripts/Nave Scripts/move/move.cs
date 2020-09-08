@@ -17,7 +17,10 @@ public class move : MonoBehaviour
     private float tempo = 0.0f;
     Collider colplayer;
     Animator anim;
+    Animator anim2;
+    public float recoveryDash = 5f;
     
+
     public int life = 3;
     public GameObject[] PropellantActive;
 
@@ -29,6 +32,7 @@ public class move : MonoBehaviour
         powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
         colplayer = gameObject.GetComponent<Collider>();
         anim = GameObject.Find("Cube").GetComponent<Animator>();
+        anim2 = GameObject.Find("player").GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -36,7 +40,15 @@ public class move : MonoBehaviour
     {
         limitMovement();
         spaceshipRotation();
-
+        recoveryDash = recoveryDash * Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Mouse1)  && Input.GetKey(KeyCode.A))
+        {
+            anim.SetBool("DashLeft", true);
+        }
+        else
+        {
+            anim.SetBool("DashLeft", false);
+        }
     }
     public void limitMovement()
     {
@@ -51,6 +63,7 @@ public class move : MonoBehaviour
             //nesse segundo if ele verifica se é  -1
             if (Input.GetAxisRaw("Horizontal") < 0)
             {
+               
                 //se o tempo for menor que 30 segundo ele vai aumentar o tempo
                 if (tempo < 30)
                     tempo += Time.deltaTime * 70;
@@ -62,6 +75,7 @@ public class move : MonoBehaviour
             //nesse segundo if ele verifica se é  1
             if (Input.GetAxisRaw("Horizontal") > 0)
             {
+                
                 //se o tempo for menor que 30 segundo ele vai aumentar o tempo
                 if (tempo > -30)
                     tempo -= Time.deltaTime * 70;
