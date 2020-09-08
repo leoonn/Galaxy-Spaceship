@@ -59,7 +59,7 @@ public class move : MonoBehaviour
 
                 //se o tempo for menor que 30 segundo ele vai aumentar o tempo
                 if (tempo < 30)
-                    tempo += Time.deltaTime * 70;
+                    tempo += Time.deltaTime * 100;
                 else
                     // aqui ele vai diminuir o tempo
                     tempo = 30;
@@ -71,7 +71,7 @@ public class move : MonoBehaviour
 
                 //se o tempo for menor que 30 segundo ele vai aumentar o tempo
                 if (tempo > -30)
-                    tempo -= Time.deltaTime * 70;
+                    tempo -= Time.deltaTime * 100;
                 else
                     // aqui ele vai diminuir o tempo
                     tempo = -30;
@@ -85,10 +85,10 @@ public class move : MonoBehaviour
 
             //aqui verifica se o tempo ta maior que zero para poder voltar a rotação pra zero;
             if (tempo > 0)
-                tempo -= Time.deltaTime * 70;
+                tempo -= Time.deltaTime * 100;
             if (tempo < 0)
                 //aqui verifica se o tempo ta menor que zero para poder voltar a rotação pra zero
-                tempo += Time.deltaTime * 70;
+                tempo += Time.deltaTime * 100;
             if (tempo > 1
                 && tempo < -1
                 )
