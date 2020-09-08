@@ -10,8 +10,10 @@ public class ObjectSpawn : MonoBehaviour
     public GameObject[] PrefabsPowerUp;
     int spawnAtual; // get a prefab
     int spawnposition; //get a spawnposition
+    [SerializeField]
     public float timespawn = 125f; //time to spawn
-    public float timespawnPowerUp = 15; //time to spawn
+    [SerializeField]
+    private float timespawnPowerUp; //time to spawn
     [HideInInspector]
     public pauseScript pause;
 
@@ -20,6 +22,7 @@ public class ObjectSpawn : MonoBehaviour
     void Start()
     {
         pause = gameObject.GetComponent<pauseScript>();
+        
         
     }
 
@@ -39,7 +42,7 @@ public class ObjectSpawn : MonoBehaviour
         {
             GameObject spawnasteroid = Instantiate(PrefabsAsteroids[spawnAtual], positionsArray[spawnposition].transform.position, Quaternion.identity); //Instantatiate a random prefab and random position.
             SpawnTime(); //calling method reset time
-           
+            timespawn = Random.Range(100f, 150f);
             //Destroy(spawnasteroid, 1000f);
         }
         timeCount++;
@@ -55,7 +58,7 @@ public class ObjectSpawn : MonoBehaviour
         {
             GameObject spawnasteroid = Instantiate(PrefabsPowerUp[spawnAtual], positionsArray[spawnposition].transform.position, Quaternion.identity); //Instantatiate a random prefab and random position.
             SpawnTimePower(); //calling method reset time
-            
+            timespawnPowerUp = Random.Range(1100f, 1500f);
             //Destroy(spawnasteroid, 1000f);
         }
         timeCountpower++;
