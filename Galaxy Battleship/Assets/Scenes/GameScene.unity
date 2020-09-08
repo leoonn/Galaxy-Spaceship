@@ -4887,6 +4887,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7241553385804536261, guid: af1c7c4bc484fa247b64e7a4ee5d832e, type: 3}
+      propertyPath: m_CustomSkybox
+      value: 
+      objectReference: {fileID: 2100000, guid: 9108c69ff433aa44790c060d23af04b0, type: 2}
     - target: {fileID: 7241553385804536263, guid: af1c7c4bc484fa247b64e7a4ee5d832e, type: 3}
       propertyPath: target
       value: 
