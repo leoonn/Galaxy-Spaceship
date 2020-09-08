@@ -18,7 +18,7 @@ public class move : MonoBehaviour
     Collider colplayer;
     Animator anim;
     Animator anim2;
-    public float recoveryDash = 5f;
+   
 
 
     public int life = 3;
@@ -40,7 +40,7 @@ public class move : MonoBehaviour
     {
         limitMovement();
         spaceshipRotation();
-        recoveryDash = recoveryDash * Time.deltaTime;
+        
         
     }
     public void limitMovement()
@@ -167,5 +167,6 @@ public class move : MonoBehaviour
         PropellantActive[0].SetActive(true); // active a propellant     
         PropellantActive[1].SetActive(true); // active a propellant  
     }
-    
+
+   
 }
