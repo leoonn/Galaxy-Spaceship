@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Pontuation : MonoBehaviour
 {
     //Variables
     public int points;
+    public TMP_Text textscore;
     public int record;
     public Text scoreText;
     public int asteroidsPoints = 100;

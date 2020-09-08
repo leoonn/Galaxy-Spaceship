@@ -47,12 +47,12 @@ public class LittleAsteroidDestroy : MonoBehaviour
             Destroy(col.gameObject); //destroy bullet       
             Destroy(gameObject); //destroy asteroid
             pointsScript.points = pointsScript.points + pointsScript.LittleAsteroidsPoints;
-            pointsScript.scoreText.text = pointsScript.points.ToString();
+            pointsScript.textscore.text = pointsScript.points.ToString();
 
             if (powerScript.pointsDouble == true)
             {
                 pointsScript.points = pointsScript.points + (pointsScript.LittleAsteroidsPoints * 2);
-                pointsScript.scoreText.text = pointsScript.points.ToString();
+                pointsScript.textscore.text = pointsScript.points.ToString();
 
 
             }

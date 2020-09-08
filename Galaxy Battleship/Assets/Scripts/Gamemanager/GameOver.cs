@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class GameOver : MonoBehaviour
 {
     //variables
-    public Text ScoreGameOver;
-    public Text RecordGameOver;
+    public TMP_Text ScoreGameOver;
+    public TMP_Text RecordGameOver;
     Pontuation pointsScript;
     public GameObject panelGameOver;
     void Start()
@@ -39,7 +40,7 @@ public class GameOver : MonoBehaviour
     public void GameOverActive()
     {
         panelGameOver.SetActive(true); //active a gameobject in unity 
-        pointsScript.scoreText.enabled = false; //desactive a text in unity 
+        pointsScript.textscore.enabled = false; //desactive a text in unity 
         
     }
     public void Continue()
