@@ -54,13 +54,13 @@ public class PowerManager : shoot
                 break;
             case powerUp.shield:
 
-                shield.SetActive(true);
+                shield.SetActive(true); //active a shield in unity 
 
                 break;
             case powerUp.doubleScore:
 
-                StartCoroutine(DoubleScore());
-                pointsDouble = true;
+                StartCoroutine(DoubleScore()); //start timer of power up double score
+                pointsDouble = true; //bool its true
                 break;
 
         }

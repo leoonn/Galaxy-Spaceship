@@ -19,6 +19,7 @@ public class Menu : MonoBehaviour
     public void Play()
     {
         SceneManager.LoadScene("GameScene");
+        Time.timeScale = 1;
     }
     public void Credits()
     {

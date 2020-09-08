@@ -140,23 +140,24 @@ public class move : MonoBehaviour
         }
     }
 
+    //methid of immune 
     public void ActiveImmune()
     {
-        transform.gameObject.tag = "Immune";
-        colplayer.enabled = false;
-        anim.SetBool("Immune", true);
-        StartCoroutine(Immune());
-        PropellantActive[0].SetActive(false);
-        PropellantActive[1].SetActive(false);
+        transform.gameObject.tag = "Immune"; //set a new tag for player
+        colplayer.enabled = false; // disable the collider player
+        anim.SetBool("Immune", true); //start animation player immunes
+        StartCoroutine(Immune()); //start of time of immune effect
+        PropellantActive[0].SetActive(false); //disable a propellant
+        PropellantActive[1].SetActive(false); //disable a propellant
     }
     public IEnumerator Immune()
     {
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(5); //time effect of immune
         Debug.Log("TAG PLAYER OKAY");
-        transform.gameObject.tag = "Player";
-        colplayer.enabled = true;
-        anim.SetBool("Immune", false);
-        PropellantActive[0].SetActive(true);
-        PropellantActive[1].SetActive(true);
+        transform.gameObject.tag = "Player"; //set a defalt tag of player
+        colplayer.enabled = true; //set a collider active of player
+        anim.SetBool("Immune", false); //finish a animation immune
+        PropellantActive[0].SetActive(true); // active a propellant     
+        PropellantActive[1].SetActive(true); // active a propellant  
     }
 }
