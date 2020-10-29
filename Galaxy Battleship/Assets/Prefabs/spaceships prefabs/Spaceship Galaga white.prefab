@@ -9788,6 +9788,7 @@ GameObject:
   - component: {fileID: 1440347312445948876}
   - component: {fileID: 1440347312445948877}
   - component: {fileID: 1440347312445948878}
+  - component: {fileID: 1693480753}
   m_Layer: 0
   m_Name: Shield
   m_TagString: ShieldColl
@@ -9869,8 +9870,27 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.5963992
-  m_Center: {x: 0.000000030034986, y: -0.037608724, z: -0.10078064}
+  m_Radius: 0.6471299
+  m_Center: {x: 0.021787424, y: -0.037608724, z: -0.1297239}
+--- !u!95 &1693480753
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1440347312445948879}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e1f58fdbe23533144b601cadf1835e84, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2701597121085857336
 GameObject:
   m_ObjectHideFlags: 0
@@ -9974,6 +9994,7 @@ GameObject:
   - component: {fileID: 8913318418852823516}
   - component: {fileID: 166393974669850434}
   - component: {fileID: 8595449311815953309}
+  - component: {fileID: 1566608578}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -9989,7 +10010,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4883322032406204214}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_Children:
   - {fileID: 1440347311254196284}
@@ -10046,6 +10067,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!95 &1566608578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4883322032406204214}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8a28ea86b51bb5c44b2baabac89af6f5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &4938199044823842819
 GameObject:
   m_ObjectHideFlags: 0
@@ -10058,7 +10098,6 @@ GameObject:
   - component: {fileID: 1904222644550772247}
   - component: {fileID: 3758551403568836722}
   - component: {fileID: 1440347311659867934}
-  - component: {fileID: 5330107893542906917}
   - component: {fileID: 1440347313007606396}
   m_Layer: 0
   m_Name: Spaceship Galaga white
@@ -10074,7 +10113,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4938199044823842819}
-  m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -5.6815605, y: -5.019301, z: -1.5476027}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -10107,6 +10146,9 @@ MonoBehaviour:
   maxY: 20
   maxZ: 20
   life: 3
+  PropellantActive:
+  - {fileID: 1440347311254196285}
+  - {fileID: 1440347311117978913}
 --- !u!54 &3758551403568836722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10142,20 +10184,6 @@ MonoBehaviour:
   bulletprefab: {fileID: 6915867179960272679, guid: c58209f8dc64bdc438040590f02e13ff, type: 3}
   fireRate: 25
   countTime: 65
---- !u!64 &5330107893542906917
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4938199044823842819}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -5495902117074765545, guid: c261adb4b7e949445abfa8b045495db4, type: 3}
 --- !u!114 &1440347313007606396
 MonoBehaviour:
   m_ObjectHideFlags: 0

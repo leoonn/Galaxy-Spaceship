@@ -18,23 +18,31 @@ public class move : MonoBehaviour
     Collider colplayer;
     Animator anim;
     Animator anim2;
-   
 
+    public GameObject[] LifeUI;
 
     public int life = 3;
     public GameObject[] PropellantActive;
 
     PowerManager powerScript;
+    GameOver GameOverScript;
+
+    public GameObject explosion;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
+        powerScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PowerManager>();
+        GameOverScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameOver>();
         colplayer = gameObject.GetComponent<Collider>();
         anim = GameObject.Find("Cube").GetComponent<Animator>();
-        anim2 = GameObject.Find("player").GetComponent<Animator>();
+        anim2 = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        LifeManager();
+    }
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -168,5 +176,46 @@ public class move : MonoBehaviour
         PropellantActive[1].SetActive(true); // active a propellant  
     }
 
+    
+    void LifeManager()
+    {/*
+        if (life < 3)
+        {
+            LifeUI[0].SetActive(false);
+        }
+        if (life < 2)
+        {
+            LifeUI[1].SetActive(false);
+        }
+        */
+        if (life == 0)
+        {
+            LifeUI[0].SetActive(false);
+            Destroy(gameObject); //destroy player
+            GameOverScript.GameOverActive(); //call the method game over
+        }
+
    
+    } 
+        private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("DestroyAsteroids")) //check object colliding in tag player
+        {
+            PlayerDamage();
+            Destroy(collision.gameObject);
+
+
+        }
+    }
+
+    public void PlayerDamage()
+    {
+        life--;
+        Debug.Log("life: " + life);
+        GameObject explosionprefab = Instantiate(explosion, gameObject.transform.position, transform.rotation); // instantieate a particle system
+        Destroy(explosionprefab, 3f); //destroy particle
+        
+        ActiveImmune(); //call the method immune
+    }
+
 }
