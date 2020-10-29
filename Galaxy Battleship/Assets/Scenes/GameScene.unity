@@ -4369,6 +4369,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1752430444}
     m_Modifications:
+    - target: {fileID: 1440347311659867934, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 963194227}
+    - target: {fileID: 1440347311659867934, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: timeshot
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 1440347313007606396, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: Aim
       value: 
@@ -5635,8 +5643,9 @@ MonoBehaviour:
   - {fileID: 1704333133}
   - {fileID: 1840576172}
   bulletprefab: {fileID: 6915867179960272679, guid: c58209f8dc64bdc438040590f02e13ff, type: 3}
-  fireRate: 25
-  countTime: 0
+  cam: {fileID: 0}
+  waitshot: 0
+  timeshot: 0
   typePower: 5
   TimeRemaningPowerUp: 15
   shield: {fileID: 1693480752}

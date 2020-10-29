@@ -8,15 +8,17 @@ public class shoot : MonoBehaviour
     
     public Transform [] Gunplayer; //player position
     public GameObject bulletprefab;
-    public float fireRate  = 25f;
-    public float countTime;
    
-    
+
+    public Camera cam;
+
+    public float waitshot;
+    public float timeshot = 4f;
     
    
     void Start()
     {
-       
+        waitshot = timeshot;
 
     }
 
@@ -26,25 +28,35 @@ public class shoot : MonoBehaviour
        
         Shoot(); //Initializing the method 
     }
-    public void Shoot() //method shoot
-    {
-        if (Input.GetButton("Shoot") && countTime > fireRate ) // if true ? shoot !!
-        {
-            
-            Instantiate(bulletprefab, Gunplayer[0].position, Gunplayer[0].rotation); //instanteate one bullet
-            ResetTime(); //call the method 
-            //fire.Play(); //play particle of bullet
-
-        }
-        
-        countTime++;
-    }
+    
 
     public void ResetTime() //reset the time shoot
     {
-        countTime = 0f;
+       
     }
-    
+    private void Shoot()
+    {
+        if (Input.GetButton("Shoot") && waitshot <= 0) // if true ? shoot !!
+        {
+            // Create a ray from the camera going through the middle of your screen
+            Ray ray = cam.ViewportPointToRay(new Vector3(0.5F, 0.5F, 0));
+            RaycastHit hit;
+            // Check whether your are pointing to something so as to adjust the direction
+            Vector3 targetPoint;
+            if (Physics.Raycast(ray, out hit))
+                targetPoint = hit.point;
+            else
+                targetPoint = ray.GetPoint(1000); // You may need to change this value according to your needs
+                                                  // Create the bullet and give it a velocity according to the target point computed before
+            var bullet = Instantiate(bulletprefab, Gunplayer[0].transform.position, Gunplayer[0].transform.rotation);
+            bullet.GetComponent<Rigidbody>().velocity = (targetPoint - Gunplayer[0].transform.position).normalized * 10;
+            waitshot = timeshot;
+        }
+        else
+        {
+            waitshot -= Time.deltaTime;
+        }
+    }
 
 
 }

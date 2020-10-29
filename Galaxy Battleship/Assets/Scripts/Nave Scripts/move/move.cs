@@ -188,11 +188,15 @@ public class move : MonoBehaviour
             LifeUI[1].SetActive(false);
         }
         */
-        if (life == 0)
+        if (life <= 0)
         {
-            LifeUI[0].SetActive(false);
-            Destroy(gameObject); //destroy player
-            GameOverScript.GameOverActive(); //call the method game over
+            //LifeUI[0].SetActive(false);
+            life = 0;
+            if (life == 0)
+            {
+                Destroy(gameObject); //destroy player
+                GameOverScript.GameOverActive(); //call the method game over
+            }
         }
 
    

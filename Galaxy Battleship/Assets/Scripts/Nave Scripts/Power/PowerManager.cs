@@ -25,32 +25,33 @@ public class PowerManager : shoot
         {
             case powerUp.doubleShoot:  // check state 
                 StartCoroutine(DoubleShoot()); //start timer of power up double shoot
-                if (Input.GetButton("Shoot") && countTime > fireRate) // if true ? shoot !!
+                if (Input.GetButton("Shoot") && waitshot <= 0) // if true ? shoot !!
                 {
 
                     Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
-                    ResetTime(); //call the method 
-
+                    
+                    waitshot = timeshot;
                 }
 
-                countTime++;
+                
                 break;
             case powerUp.tripleShoot: //check state 
                 StartCoroutine(TripleShoot()); //start timer of power up triple shoot
-                if (Input.GetButton("Shoot") && countTime > fireRate) // if true ? shoot !!
+                if (Input.GetButton("Shoot") && waitshot <= 0) // if true ? shoot !!
                 {
 
                     Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
                     Instantiate(bulletprefab, Gunplayer[2].position, Gunplayer[2].rotation); //instanteate one bullet
-                    ResetTime(); //call the method 
-
+                    
+                    waitshot = timeshot;
                 }
 
-                countTime++;
+                
                 break;
             case powerUp.shootFast:
                 StartCoroutine(FastShoot()); //start timer of power up fast shoot
-                shootScript.fireRate = 8; //set value of fire rate
+                shootScript.timeshot = 1f; //set value of fire rate
+               
                 break;
             case powerUp.shield:
 
@@ -83,7 +84,7 @@ public class PowerManager : shoot
     {
         yield return new WaitForSeconds(TimeRemaningPowerUp);
         typePower = powerUp.empty;//set state after timer
-        shootScript.fireRate = 25; //set value of fire rate
+        shootScript.timeshot = 1f; //set value of fire rate
     }
     public void Shield()
     {
