@@ -25,8 +25,8 @@ public class SpawnDuplicate : MonoBehaviour
     { 
         
             Instantiate(duplicated, gameObject.transform.position, gameObject.transform.rotation);
-            
-        
-    
+            Instantiate(duplicated2, gameObject.transform.position, gameObject.transform.rotation);
+
+
     }
 }

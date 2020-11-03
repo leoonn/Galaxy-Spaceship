@@ -16,6 +16,7 @@ TagManager:
   - Immune
   - Enemy
   - GameManager
+  - EnemyDuplicate
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class Enemy : MonoBehaviour
 
     public typeEnemy type;
     public int lifeEnemy;
-
+    typeEnemy TypeRead;
     SpawnDuplicate spawnDuplicateScript;
     void Start()
     {
@@ -22,10 +22,10 @@ public class Enemy : MonoBehaviour
         PlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<move>();
         pointsScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Pontuation>();
 
-
-        if (type == typeEnemy.duplicate)
-        { 
-           // spawnDuplicateScript = 
+        TypeRead = type;
+        if (gameObject.tag == "EnemyDuplicate")
+        {
+            spawnDuplicateScript = gameObject.GetComponent<SpawnDuplicate>();
         }
     }
 
@@ -40,17 +40,16 @@ public class Enemy : MonoBehaviour
                 RotatePlayer(playerTransform.position);
                 break;
             case typeEnemy.dead:
-                if (lifeEnemy <= 0)
-                {
-                    lifeEnemy = 0;
-                 
-                    Destroy(gameObject); //destroy asteroid
+               
+                Destroy(gameObject); //destroy asteroid
 
-                    pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
-                    pointsScript.textscore.text = pointsScript.points.ToString();
+                pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
+                pointsScript.textscore.text = pointsScript.points.ToString();
+
+                if(gameObject.tag == "EnemyDuplicate")
+                {
+                    spawnDuplicateScript.InstantiateMinis();
                 }
-                GameObject explosionprefab = Instantiate(explosion, transform.position, transform.rotation); // instantieate a particle system
-                Destroy(gameObject);
                 break;
         }
     }
@@ -82,7 +81,14 @@ public class Enemy : MonoBehaviour
             Destroy(explosionprefab, 3f); //destroy particle
 
             Destroy(col.gameObject); //destroy bullet    
-            
+            lifeEnemy--;
+
+            if (lifeEnemy <= 0)
+            {
+                lifeEnemy = 0;
+                type = typeEnemy.dead;
+            }
+
         }
 
         if (col.gameObject.CompareTag("Player"))

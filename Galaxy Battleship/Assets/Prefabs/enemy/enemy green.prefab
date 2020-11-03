@@ -222,7 +222,7 @@ MonoBehaviour:
   speedEnemy: 7
   explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
   type: 0
-  lifeEnemy: 0
+  lifeEnemy: 1
 --- !u!136 &1845388832165465811
 CapsuleCollider:
   m_ObjectHideFlags: 0

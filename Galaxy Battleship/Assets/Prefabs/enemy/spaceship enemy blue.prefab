@@ -216,9 +216,10 @@ GameObject:
   - component: {fileID: 8761798394852716848}
   - component: {fileID: 44782494490725394}
   - component: {fileID: 2079800753345057774}
+  - component: {fileID: -4917046970570233186}
   m_Layer: 0
   m_Name: spaceship enemy blue
-  m_TagString: Enemy
+  m_TagString: EnemyDuplicate
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -253,7 +254,7 @@ MonoBehaviour:
   speedEnemy: 7
   explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
   type: 2
-  lifeEnemy: 0
+  lifeEnemy: 2
 --- !u!136 &2079800753345057774
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -268,3 +269,17 @@ CapsuleCollider:
   m_Height: 3.7890482
   m_Direction: 2
   m_Center: {x: -0.0076439367, y: 0.27951187, z: 0.3670919}
+--- !u!114 &-4917046970570233186
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8274231385807973258}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d4dd81fcb72cd04fbb418a3ca85a614, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  duplicated: {fileID: 8922106415479249737, guid: 70b2923abbba0304cb29ddb4c3d011c5, type: 3}
+  duplicated2: {fileID: 8922106415479249737, guid: 70b2923abbba0304cb29ddb4c3d011c5, type: 3}

@@ -13,7 +13,7 @@ public class Pontuation : MonoBehaviour
     public Text scoreText;
     public int asteroidsPoints = 100;
     public int LittleAsteroidsPoints = 50;
-
+    public int duplicatepoints = 100;
     public int ChasePoints = 200;
     public int shooterPoints = 400;
     void Start()
