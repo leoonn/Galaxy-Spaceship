@@ -255,8 +255,9 @@ MonoBehaviour:
   lifeEnemy: 2
   timeShot: 0
   explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
-  guns: []
-  bulletPrefab: {fileID: 0}
+  guns:
+  - {fileID: 7787575361669068459}
+  bulletPrefab: {fileID: 6915867179960272679, guid: 3bcd69d56cc87c74c822c1787ca48261, type: 3}
   type: 2
 --- !u!136 &2079800753345057774
 CapsuleCollider:
