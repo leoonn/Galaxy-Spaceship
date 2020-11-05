@@ -48,8 +48,8 @@ public class move : MonoBehaviour
     {
         limitMovement();
         spaceshipRotation();
-        
-        
+
+
     }
     public void limitMovement()
     {
@@ -153,6 +153,12 @@ public class move : MonoBehaviour
             powerScript.typePower = powerUp.doubleScore;
             Destroy(col.gameObject);
         }
+        //--------------------------------------------------------------------------------------------
+
+        if (col.gameObject.CompareTag("BulletEnemy"))
+        {
+            PlayerDamage();
+        }
     }
 
     //methid of immune 
@@ -176,7 +182,7 @@ public class move : MonoBehaviour
         PropellantActive[1].SetActive(true); // active a propellant  
     }
 
-    
+
     void LifeManager()
     {/*
         if (life < 3)
@@ -199,18 +205,19 @@ public class move : MonoBehaviour
             }
         }
 
-   
-    } 
-        private void OnCollisionEnter(Collision collision)
+
+    }
+    private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("DestroyAsteroids")) //check object colliding in tag player
         {
             PlayerDamage();
             Destroy(collision.gameObject);
 
-
         }
     }
+
+    
 
     public void PlayerDamage()
     {
@@ -218,7 +225,7 @@ public class move : MonoBehaviour
         Debug.Log("life: " + life);
         GameObject explosionprefab = Instantiate(explosion, gameObject.transform.position, transform.rotation); // instantieate a particle system
         Destroy(explosionprefab, 3f); //destroy particle
-        
+
         ActiveImmune(); //call the method immune
     }
 

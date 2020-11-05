@@ -11,9 +11,19 @@ public class Bullet : MonoBehaviour
 
     void Awake()
     {
-        bulletRigid = GetComponent<Rigidbody>(); //get component Rigidbody
-        bulletRigid.AddForce(bulletRigid.transform.forward * speed); //addforce bullet
-        Destroy(gameObject, lifebullet); //Destroy bullet in time life
+        if (gameObject.tag == "BulletEnemy")
+        {
+            bulletRigid = GetComponent<Rigidbody>(); //get component Rigidbody
+            bulletRigid.AddForce(-bulletRigid.transform.forward * speed); //addforce bullet
+            Destroy(gameObject, lifebullet); //Destroy bullet in time life
+        }
+        else
+        {
+            bulletRigid = GetComponent<Rigidbody>(); //get component Rigidbody
+            bulletRigid.AddForce(bulletRigid.transform.forward * speed); //addforce bullet
+            Destroy(gameObject, lifebullet); //Destroy bullet in time life
+        }
+      
 
     }
     void Start()

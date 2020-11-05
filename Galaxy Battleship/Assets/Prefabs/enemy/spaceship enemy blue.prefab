@@ -231,14 +231,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8274231385807973258}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.730724, y: -2.8260763, z: -0.812109}
+  m_LocalRotation: {x: -0, y: 0.70710576, z: -0, w: -0.7071079}
+  m_LocalPosition: {x: -7.9748087, y: -2.8260765, z: -0.056193773}
   m_LocalScale: {x: 2.0592, y: 2.0592, z: 2.0592}
   m_Children:
   - {fileID: 6175964503249652671}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 270, z: 0}
 --- !u!114 &44782494490725394
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,9 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speedEnemy: 7
-  explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
-  type: 2
   lifeEnemy: 2
+  timeShot: 0
+  explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
+  guns: []
+  bulletPrefab: {fileID: 0}
+  type: 2
 --- !u!136 &2079800753345057774
 CapsuleCollider:
   m_ObjectHideFlags: 0

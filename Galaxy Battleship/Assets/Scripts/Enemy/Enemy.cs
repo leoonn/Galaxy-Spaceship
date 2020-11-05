@@ -3,19 +3,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Enemy : MonoBehaviour
-{
+{   [Header("Atributtes")]
     public float speedEnemy;
+    public int lifeEnemy;
+    public float timeShot;
+    float waitShot;
 
+
+    [Header("References game")]
     public GameObject explosion;
     private Transform playerTransform;
+    public GameObject []guns;
+    public GameObject bulletPrefab;
 
+    [Header("References scripts")]
     move PlayerScript;
     Pontuation pointsScript;
-
-    public typeEnemy type;
-    public int lifeEnemy;
-    typeEnemy TypeRead;
     SpawnDuplicate spawnDuplicateScript;
+
+    [Header("References Enums")]
+    public typeEnemy type;
+    typeEnemy TypeRead;
+    
     void Start()
     {
         playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
@@ -27,6 +36,8 @@ public class Enemy : MonoBehaviour
         {
             spawnDuplicateScript = gameObject.GetComponent<SpawnDuplicate>();
         }
+
+        waitShot = timeShot;
     }
 
     // Update is called once per frame
@@ -38,6 +49,22 @@ public class Enemy : MonoBehaviour
 
                 FollowPlayer(playerTransform.position);
                 RotatePlayer(playerTransform.position);
+                break;
+            case typeEnemy.shooter:
+                if (waitShot <= 0)
+                {
+
+                    for (int i = 0; i < guns.Length; i++)
+                    {
+                        Instantiate(bulletPrefab, guns[i].transform.position, guns[i].transform.rotation);
+                    }
+                    waitShot = timeShot;
+                }
+                else
+                {
+                    waitShot -= Time.deltaTime;
+                }
+                
                 break;
             case typeEnemy.dead:
                

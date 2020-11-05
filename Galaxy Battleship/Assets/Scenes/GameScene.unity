@@ -5748,6 +5748,7 @@ MonoBehaviour:
   scoreText: {fileID: 0}
   asteroidsPoints: 100
   LittleAsteroidsPoints: 50
+  duplicatepoints: 100
   ChasePoints: 200
   shooterPoints: 400
 --- !u!114 &2033041905
@@ -5782,7 +5783,8 @@ MonoBehaviour:
     enemy:
     - {fileID: 1122156526887514464, guid: 70b2923abbba0304cb29ddb4c3d011c5, type: 3}
     - {fileID: 8761798394852716848, guid: a2484006096538745be3922046b23e7a, type: 3}
-    count: 5
+    - {fileID: 1955496780791975223, guid: 5954e98515d6a494cad9812aca6df399, type: 3}
+    count: 6
     rate: 1
   - name: wave text 2
     enemy:
