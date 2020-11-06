@@ -254,7 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speedEnemy: 3
   lifeEnemy: 2
-  timeShot: 5
+  timeShot: 2
   explosion: {fileID: 786546413932932026, guid: 427f05b905f543a4fb8fab965027a6b1, type: 3}
   guns:
   - {fileID: 7787575361669068459}
