@@ -18,3 +18,5 @@ public class EnemyState : MonoBehaviour
 }
 
 public enum typeEnemy {chase, shooter, duplicate, boss, dead};
+
+public enum Moveenemy { Move, Stop, boss };

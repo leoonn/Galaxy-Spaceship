@@ -15,6 +15,7 @@ public class Enemy : MonoBehaviour
     private Transform playerTransform;
     public GameObject []guns;
     public GameObject bulletPrefab;
+    
 
     [Header("References scripts")]
     move PlayerScript;
@@ -23,12 +24,17 @@ public class Enemy : MonoBehaviour
 
     [Header("References Enums")]
     public typeEnemy type;
+    
     typeEnemy TypeRead;
     
     void Start()
     {
-        playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
-        PlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<move>();
+        if (GameObject.FindGameObjectWithTag("Player") != null)
+        {
+            playerTransform = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+            PlayerScript = GameObject.FindGameObjectWithTag("Player").GetComponent<move>();
+        }
+        
         pointsScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Pontuation>();
 
         TypeRead = type;
@@ -38,47 +44,14 @@ public class Enemy : MonoBehaviour
         }
 
         waitShot = timeShot;
+
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        switch (type)
-        {
-            case typeEnemy.chase:
-
-                FollowPlayer(playerTransform.position);
-                RotatePlayer(playerTransform.position);
-                break;
-            case typeEnemy.shooter:
-                if (waitShot <= 0)
-                {
-
-                    for (int i = 0; i < guns.Length; i++)
-                    {
-                        Instantiate(bulletPrefab, guns[i].transform.position, guns[i].transform.rotation);
-                    }
-                    waitShot = timeShot;
-                }
-                else
-                {
-                    waitShot -= Time.deltaTime;
-                }
-                
-                break;
-            case typeEnemy.dead:
-               
-                Destroy(gameObject); //destroy asteroid
-
-                pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
-                pointsScript.textscore.text = pointsScript.points.ToString();
-
-                if(gameObject.tag == "EnemyDuplicate")
-                {
-                    spawnDuplicateScript.InstantiateMinis();
-                }
-                break;
-        }
+        TypeEnemies();
     }
     void FixedUpdate()
     {
@@ -126,9 +99,49 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void LifeEnemy()
-    { 
-        
+    void TypeEnemies()
+    {
+        switch (type)
+        {
+            case typeEnemy.chase:
+
+                if (playerTransform != null)
+                {
+                    FollowPlayer(playerTransform.position);
+                    RotatePlayer(playerTransform.position);
+                }
+                
+                break;
+            case typeEnemy.shooter:
+                if (waitShot <= 0)
+                {
+
+                    for (int i = 0; i < guns.Length; i++)
+                    {
+                        Instantiate(bulletPrefab, guns[i].transform.position, guns[i].transform.rotation);
+                    }
+                    waitShot = timeShot;
+                }
+                else
+                {
+                    waitShot -= Time.deltaTime;
+                }
+
+                break;
+            case typeEnemy.dead:
+
+                Destroy(gameObject); //destroy asteroid
+
+                pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
+                pointsScript.textscore.text = pointsScript.points.ToString();
+
+                if (gameObject.tag == "EnemyDuplicate")
+                {
+                    spawnDuplicateScript.InstantiateMinis();
+                }
+                break;
+        }
 
     }
+
 }

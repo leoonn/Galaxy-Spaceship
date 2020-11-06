@@ -110,8 +110,7 @@ public class WaveSpawn : MonoBehaviour
         {
             searchCoutdown = 2f;
          
-            if (GameObject.FindGameObjectWithTag("Enemy") == null 
-                )
+            if (GameObject.FindGameObjectWithTag("Enemy") == null && GameObject.FindGameObjectWithTag("EnemyDuplicate") == null)
             {
 
                 return false;
