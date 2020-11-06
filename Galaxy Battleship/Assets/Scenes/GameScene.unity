@@ -5166,7 +5166,7 @@ MonoBehaviour:
   - {fileID: 3594680484017526392, guid: c31b7c2366a4fc247b68884eb9133502, type: 3}
   - {fileID: 7862839373784884842, guid: cdcbbe43c86a9984396bad1884c6c6d0, type: 3}
   timespawn: 125
-  timespawnPowerUp: 1500
+  timespawnPowerUp: 1000
   pause: {fileID: 0}
 --- !u!114 &2033041902
 MonoBehaviour:
