@@ -20,6 +20,8 @@ public class Enemy : MonoBehaviour
     [Header("References scripts")]
     move PlayerScript;
     Pontuation pointsScript;
+    PowerManager powerScripts;
+
     SpawnDuplicate spawnDuplicateScript;
 
     [Header("References Enums")]
@@ -37,7 +39,7 @@ public class Enemy : MonoBehaviour
         }
         
         pointsScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Pontuation>();
-
+        powerScripts = GameObject.FindGameObjectWithTag("GameManager").GetComponent<PowerManager>();
         TypeRead = type;
 
         if (gameObject.tag == "EnemyDuplicate")
@@ -135,24 +137,51 @@ public class Enemy : MonoBehaviour
                 Destroy(gameObject); //destroy asteroid
 
 
-                if (gameObject.tag == "EnemyDuplicate")
+                if (gameObject.tag == "EnemyDuplicate" )
                 {
-                    spawnDuplicateScript.InstantiateMinis();
-                    pointsScript.points = pointsScript.points + pointsScript.duplicatepoints;
-                    pointsScript.textscore.text = pointsScript.points.ToString();
+                    if (powerScripts.pointsDouble)
+                    {
+                        spawnDuplicateScript.InstantiateMinis();
+                        pointsScript.points = pointsScript.points + (pointsScript.duplicatepoints * 2);
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
+                    else
+                    {
+                        spawnDuplicateScript.InstantiateMinis();
+                        pointsScript.points = pointsScript.points + pointsScript.duplicatepoints;
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
+
+                    
 
                 }
 
-                else if (TypeRead == typeEnemy.chase)
+                 if (TypeRead == typeEnemy.chase)
                 {
-                    pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
-                    pointsScript.textscore.text = pointsScript.points.ToString();
+                    if (powerScripts.pointsDouble)
+                    {
+                        pointsScript.points = pointsScript.points + (pointsScript.ChasePoints * 2);
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
+                    else
+                    {
+                        pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
                 }
 
-                else if (TypeRead == typeEnemy.shooter)
+                 if (TypeRead == typeEnemy.shooter)
                 {
-                    pointsScript.points = pointsScript.points + pointsScript.shooterPoints;
-                    pointsScript.textscore.text = pointsScript.points.ToString();
+                    if (powerScripts.pointsDouble)
+                    {
+                        pointsScript.points = pointsScript.points + (pointsScript.shooterPoints * 2);
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
+                    else
+                    {
+                        pointsScript.points = pointsScript.points + pointsScript.shooterPoints;
+                        pointsScript.textscore.text = pointsScript.points.ToString();
+                    }
                 }
                     break;
         }
