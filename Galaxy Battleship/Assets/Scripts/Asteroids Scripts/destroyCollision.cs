@@ -41,14 +41,18 @@ public class destroyCollision : MonoBehaviour
             Destroy(col.gameObject); //destroy bullet       
             Destroy(gameObject); //destroy asteroid
             
-            pointsScript.points = pointsScript.points + pointsScript.asteroidsPoints;
-            pointsScript.textscore.text = pointsScript.points.ToString();
+           
             
             Destroy(asteroidCracked.transform.parent, 5f); //destroy peaces asteroids
 
             if (powerScript.pointsDouble)
             {
                 pointsScript.points = pointsScript.points + (pointsScript.asteroidsPoints * 2);
+                pointsScript.textscore.text = pointsScript.points.ToString();
+            }
+            else
+            {
+                pointsScript.points = pointsScript.points + pointsScript.asteroidsPoints;
                 pointsScript.textscore.text = pointsScript.points.ToString();
             }
         }

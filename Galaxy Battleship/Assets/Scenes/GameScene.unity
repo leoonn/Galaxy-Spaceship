@@ -3923,13 +3923,21 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 963194227}
-    - target: {fileID: 1440347311659867934, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
-      propertyPath: timeshot
-      value: 2
+    - target: {fileID: 1440347311791942394, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440347312118415113, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.48
       objectReference: {fileID: 0}
     - target: {fileID: 1440347312172265831, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0.591
+      objectReference: {fileID: 0}
+    - target: {fileID: 1440347312172265831, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: 1440347313007606396, guid: db76156cc0c1f7b48992a0313c96df73, type: 3}
       propertyPath: Aim
@@ -5034,9 +5042,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2033041905}
         m_TargetAssemblyTypeName: GameOver, Assembly-CSharp
-        m_MethodName: 
+        m_MethodName: Continue
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5200,7 +5208,7 @@ MonoBehaviour:
   bulletprefab: {fileID: 6915867179960272679, guid: c58209f8dc64bdc438040590f02e13ff, type: 3}
   cam: {fileID: 0}
   waitshot: 0
-  timeshot: 0
+  timeshot: 1
   typePower: 5
   TimeRemaningPowerUp: 15
   shield: {fileID: 1693480752}

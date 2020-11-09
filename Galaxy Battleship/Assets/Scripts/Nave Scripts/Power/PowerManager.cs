@@ -29,8 +29,12 @@ public class PowerManager : shoot
                 {
 
                     Instantiate(bulletprefab, Gunplayer[1].position, Gunplayer[1].rotation); //instanteate one bullet
-                    
+
                     waitshot = timeshot;
+                }
+                else
+                {
+                    waitshot -= Time.deltaTime;
                 }
 
                 
@@ -45,12 +49,17 @@ public class PowerManager : shoot
                     
                     waitshot = timeshot;
                 }
+                else
+                {
+                    waitshot -= Time.deltaTime;
+                }
 
-                
+
+
                 break;
             case powerUp.shootFast:
                 StartCoroutine(FastShoot()); //start timer of power up fast shoot
-                shootScript.timeshot = 1f; //set value of fire rate
+                shootScript.timeshot = 0.5f; //set value of fire rate
                
                 break;
             case powerUp.shield:

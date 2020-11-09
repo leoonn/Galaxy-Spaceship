@@ -10145,10 +10145,12 @@ MonoBehaviour:
   maxX: 20
   maxY: 20
   maxZ: 20
+  LifeUI: []
   life: 3
   PropellantActive:
   - {fileID: 1440347311254196285}
   - {fileID: 1440347311117978913}
+  explosion: {fileID: 0}
 --- !u!54 &3758551403568836722
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -10182,8 +10184,9 @@ MonoBehaviour:
   - {fileID: 1440347311791942394}
   - {fileID: 1440347312118415113}
   bulletprefab: {fileID: 6915867179960272679, guid: c58209f8dc64bdc438040590f02e13ff, type: 3}
-  fireRate: 25
-  countTime: 65
+  cam: {fileID: 0}
+  waitshot: 0
+  timeshot: 1
 --- !u!114 &1440347313007606396
 MonoBehaviour:
   m_ObjectHideFlags: 0

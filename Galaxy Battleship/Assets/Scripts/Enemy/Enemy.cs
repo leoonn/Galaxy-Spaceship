@@ -24,8 +24,9 @@ public class Enemy : MonoBehaviour
 
     [Header("References Enums")]
     public typeEnemy type;
-    
-    typeEnemy TypeRead;
+
+    [SerializeField]
+    private typeEnemy TypeRead;
     
     void Start()
     {
@@ -38,6 +39,7 @@ public class Enemy : MonoBehaviour
         pointsScript = GameObject.FindGameObjectWithTag("GameManager").GetComponent<Pontuation>();
 
         TypeRead = type;
+
         if (gameObject.tag == "EnemyDuplicate")
         {
             spawnDuplicateScript = gameObject.GetComponent<SpawnDuplicate>();
@@ -132,14 +134,27 @@ public class Enemy : MonoBehaviour
 
                 Destroy(gameObject); //destroy asteroid
 
-                pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
-                pointsScript.textscore.text = pointsScript.points.ToString();
 
                 if (gameObject.tag == "EnemyDuplicate")
                 {
                     spawnDuplicateScript.InstantiateMinis();
+                    pointsScript.points = pointsScript.points + pointsScript.duplicatepoints;
+                    pointsScript.textscore.text = pointsScript.points.ToString();
+
                 }
-                break;
+
+                else if (TypeRead == typeEnemy.chase)
+                {
+                    pointsScript.points = pointsScript.points + pointsScript.ChasePoints;
+                    pointsScript.textscore.text = pointsScript.points.ToString();
+                }
+
+                else if (TypeRead == typeEnemy.shooter)
+                {
+                    pointsScript.points = pointsScript.points + pointsScript.shooterPoints;
+                    pointsScript.textscore.text = pointsScript.points.ToString();
+                }
+                    break;
         }
 
     }
