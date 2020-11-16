@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class Menu : MonoBehaviour
 {
+
+    public GameObject shopPanel;
     // Start is called before the first frame update
     void Start()
     {
@@ -28,5 +30,15 @@ public class Menu : MonoBehaviour
     public void Options()
     {
         
+    }
+
+    public void Shop()
+    {
+        shopPanel.SetActive(true);
+    }
+
+    public void ShopOff()
+    {
+        shopPanel.SetActive(false);
     }
 }

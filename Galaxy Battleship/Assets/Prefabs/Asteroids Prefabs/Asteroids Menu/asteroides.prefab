@@ -111,6 +111,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 06e8cc82467673249b1122d10c4cbec4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  asteroidCracked: {fileID: 0}
+  explosion: {fileID: 0}
+  SceneMenu: 1
 --- !u!114 &4630357800797321156
 MonoBehaviour:
   m_ObjectHideFlags: 0

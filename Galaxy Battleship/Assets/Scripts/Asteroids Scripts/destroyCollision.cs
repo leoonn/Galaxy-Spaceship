@@ -11,12 +11,17 @@ public class destroyCollision : MonoBehaviour
     Pontuation pointsScript;
   
     GameOver gameoverScript;
+    public bool SceneMenu;
     void Start()
     {
-        powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
-        pointsScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
-       
-        gameoverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
+        if (SceneMenu == false)
+        {
+
+            powerScript = GameObject.Find("GameManager").GetComponent<PowerManager>();
+            pointsScript = GameObject.Find("GameManager").GetComponent<Pontuation>();
+
+            gameoverScript = GameObject.Find("GameManager").GetComponent<GameOver>();
+        }
     }
 
     // Update is called once per frame
